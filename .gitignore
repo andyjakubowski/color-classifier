@@ -1,0 +1,5 @@
+.ipynb_checkpoints
+*.code-workspace
+.vscode
+node_modules
+sketch
