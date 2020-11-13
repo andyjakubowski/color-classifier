@@ -4,14 +4,19 @@ body {
   min-height: -webkit-fill-available;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 
   font-family: sans-serif;
 }
 
 main {
   padding-block-end: 3em;
+
+  flex-grow: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-content {
@@ -72,6 +77,22 @@ main {
 .buttons-list__button:hover {
   color: rgba(0, 0, 0, 0.9);
   background-color: rgba(0, 0, 0, 0.04);
+}
+
+.footer__link-list {
+  margin: 0;
+  padding: 0 0 2em;
+
+  display: flex;
+  justify-content: center;
+
+  list-style-type: none;
+}
+
+.footer__link-item:first-of-type {
+}
+
+.footer__json-link {
 }
 
 /* Positioning */
