@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: sans-serif;
+}
+
+main {
+  padding-block-end: 3em;
+}
+
+.main-content {
+  max-width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.color-box {
+  width: 280px;
+  height: 280px;
+
+  background-color: aquamarine;
+}
+
+.color-input {
+  margin: 0;
+  padding: 0;
+
+  width: 280px;
+  height: 280px;
+
+  border: none;
+  background-color: none;
+
+  cursor: pointer;
+}
+
+.buttons-list {
+  margin: 2em 0 0;
+  padding: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  list-style-type: none;
+}
+
+.buttons-list__item:not(:last-of-type) {
+  margin: 0 1em 1em 0;
+}
+
+.buttons-list__button {
+  padding: 0 1em;
+  height: 44px;
+
+  border: none;
+  border-radius: 7px;
+
+  background-color: rgba(0, 0, 0, 0.05);
+
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.buttons-list__button:hover {
+  color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Positioning */
+/* Display */
+/* Colors */
+/* Type */
+/* Other */
