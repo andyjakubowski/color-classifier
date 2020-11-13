@@ -2,6 +2,24 @@ function handleDOMContentLoaded() {
   appendDataDownloadLink();
 }
 
+const MathUtil = {
+  getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  },
+};
+
+const getRandomRGBColor = function getRandomRGBColor() {
+  const red = MathUtil.getRandomInt(255);
+  const green = MathUtil.getRandomInt(255);
+  const blue = MathUtil.getRandomInt(255);
+
+  return {
+    red,
+    green,
+    blue,
+  };
+};
+
 function appendDataDownloadLink() {
   const sampleObject = {
     name: 'Andy',
