@@ -20,13 +20,12 @@ const App = (function buildApp() {
     'Red-ish',
     'Green-ish',
     'Blue-ish',
+    'Orange-ish',
+    'Yellow-ish',
     'Pink-ish',
     'Purple-ish',
     'Brown-ish',
-    'Yellow-ish',
-    'White-ish',
     'Gray-ish',
-    'Black-ish',
   ];
 
   function predict() {
