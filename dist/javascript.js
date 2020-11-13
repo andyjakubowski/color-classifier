@@ -41,7 +41,7 @@ const Data = (function buildData() {
 const App = (function buildApp() {
   const colorBoxEl = document.getElementsByClassName('color-box').item(0);
   const jsonAnchorEl = document
-    .getElementsByClassName('footer__json-link')
+    .getElementsByClassName('footer__link-json')
     .item(0);
   let currentColor;
 
@@ -71,6 +71,12 @@ const App = (function buildApp() {
     displayNewColor();
   }
 
+  function handleSkipButtonClick(e) {
+    e.preventDefault();
+    setNewColor();
+    displayNewColor();
+  }
+
   function addEventListeners() {
     const buttons = [
       ...document.getElementsByClassName('buttons-list__button'),
@@ -78,6 +84,11 @@ const App = (function buildApp() {
     buttons.forEach((button) => {
       button.addEventListener('click', handleLabelButtonClick.bind());
     });
+
+    const skipButton = document
+      .getElementsByClassName('footer__link-skip')
+      .item(0);
+    skipButton.addEventListener('click', handleSkipButtonClick);
   }
 
   function setNewColor() {
