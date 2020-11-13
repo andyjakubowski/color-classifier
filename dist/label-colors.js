@@ -40,6 +40,9 @@ const Data = (function buildData() {
 
 const App = (function buildApp() {
   const colorBoxEl = document.getElementsByClassName('color-box').item(0);
+  const countHeadingNumberlEl = document
+    .getElementsByClassName('count-heading__number')
+    .item(0);
   const jsonAnchorEl = document
     .getElementsByClassName('footer__link-json')
     .item(0);
@@ -57,6 +60,11 @@ const App = (function buildApp() {
     jsonAnchorEl.textContent = 'Download JSON';
   }
 
+  function updateCountLabel() {
+    const { data } = Data.get();
+    countHeadingNumberlEl.textContent = data.length;
+  }
+
   function saveColorLabel(button) {
     const colorHex = ColorUtil.RGBToHex(currentColor);
     const label = button.textContent.toLowerCase();
@@ -68,6 +76,7 @@ const App = (function buildApp() {
   function handleLabelButtonClick(e) {
     saveColorLabel(e.target);
     updateDownloadLink();
+    updateCountLabel();
     setNewColor();
     displayNewColor();
   }
@@ -117,6 +126,7 @@ const App = (function buildApp() {
     init() {
       Data.init();
       updateDownloadLink();
+      updateCountLabel();
       setNewColor();
       displayNewColor();
       addEventListeners();

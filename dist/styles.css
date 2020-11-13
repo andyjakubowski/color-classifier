@@ -27,6 +27,17 @@ main {
   align-items: center;
 }
 
+h1 {
+  margin-block-end: 0.5em;
+}
+
+.count-heading__heading {
+  margin-block-start: 0;
+  margin-block-end: 1.5em;
+  font-size: 18px;
+  color: gray;
+}
+
 .color-box {
   width: 280px;
   height: 280px;
