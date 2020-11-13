@@ -47,12 +47,13 @@ const App = (function buildApp() {
 
   function updateDownloadLink() {
     const { data } = Data.get();
+    const colorCount = data.length;
     const jsonObject = JSON.stringify(data);
     const blob = new Blob([jsonObject], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
 
     jsonAnchorEl.href = url;
-    jsonAnchorEl.download = 'labeled-colors.json';
+    jsonAnchorEl.download = `labeled-colors-${colorCount}.json`;
     jsonAnchorEl.textContent = 'Download JSON';
   }
 
