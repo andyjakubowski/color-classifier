@@ -10,3 +10,8 @@ dependencies:
   - scikit-learn=0.23.*
   - pandas=1.1.*
   - seaborn=0.11.*
+  - pip
+  - pip:
+      - tensorboard==2.4.*
+      - tensorflow==2.3.*
+      - tensorflowjs==2.7.*
