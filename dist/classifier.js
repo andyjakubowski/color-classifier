@@ -29,16 +29,12 @@ const Model = (function buildFakeModel() {
       const probabilities = await predictionTensor.data();
       const maxProba = Math.max(...probabilities);
       const indexOfMaxProba = probabilities.indexOf(maxProba);
-      return indexOfMaxProba;
+      return { probabilities, indexOfMaxProba };
     },
   };
 })();
 
 const App = (function buildApp() {
-  const colorInputEl = document.getElementsByClassName('color-input').item(0);
-  const predictionLabelEl = document
-    .getElementsByClassName('prediction-label')
-    .item(0);
   const predictionLabels = [
     'Red-ish',
     'Green-ish',
@@ -51,11 +47,20 @@ const App = (function buildApp() {
     'Gray-ish',
   ];
 
+  let colorInputEl;
+  let barRects;
+  let predictionLabelEl;
+
   async function predict() {
     const hexColor = colorInputEl.value;
     const rgbColor = ColorUtil.hexToRgb(hexColor);
-    const predictionIndex = await Model.predict(rgbColor);
-    const predictionLabel = predictionLabels[predictionIndex];
+    const { probabilities, indexOfMaxProba } = await Model.predict(rgbColor);
+
+    barRects.forEach((rect, index) => {
+      rect.style.height = `${probabilities[index] * 100}%`;
+    });
+
+    const predictionLabel = predictionLabels[indexOfMaxProba];
     predictionLabelEl.textContent = predictionLabel;
   }
 
@@ -72,8 +77,20 @@ const App = (function buildApp() {
     colorInputEl.addEventListener('input', handleColorInput);
   }
 
+  function setDomReferences() {
+    const barRectsHTMLCollection = document.getElementsByClassName(
+      'bar__rect-fill'
+    );
+    barRects = [...barRectsHTMLCollection];
+    colorInputEl = document.getElementsByClassName('color-input').item(0);
+    predictionLabelEl = document
+      .getElementsByClassName('prediction-label')
+      .item(0);
+  }
+
   return {
     async init() {
+      setDomReferences();
       addEventListeners();
       setColorInputToRandomValue();
       await Model.init();
