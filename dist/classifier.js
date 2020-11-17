@@ -74,9 +74,9 @@ const App = (function buildApp() {
 
   return {
     async init() {
-      await Model.init();
       addEventListeners();
       setColorInputToRandomValue();
+      await Model.init();
       predict();
     },
   };
