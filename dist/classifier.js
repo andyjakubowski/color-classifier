@@ -57,6 +57,7 @@ const App = (function buildApp() {
     const { probabilities, indexOfMaxProba } = await Model.predict(rgbColor);
 
     barRects.forEach((rect, index) => {
+      rect.style.backgroundColor = hexColor;
       rect.style.height = `${probabilities[index] * 100}%`;
     });
 
