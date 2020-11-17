@@ -96,6 +96,7 @@ main {
 
   cursor: pointer;
 
+  -webkit-clip-path: url('#blobClipPath');
   clip-path: url('#blobClipPath');
 }
 
