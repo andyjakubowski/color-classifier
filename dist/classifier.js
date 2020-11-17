@@ -51,6 +51,20 @@ const App = (function buildApp() {
   let barRects;
   let predictionLabelEl;
 
+  function getTextColorForBackground({ red, green, blue }) {
+    const THRESHOLD = 110;
+    const channels = [red, green, blue];
+    const countBelowThreshold = channels.filter((channel) => {
+      return channel < THRESHOLD;
+    }).length;
+
+    if (countBelowThreshold >= 1) {
+      return 'white';
+    } else {
+      return 'black';
+    }
+  }
+
   async function predict() {
     const hexColor = colorInputEl.value;
     const rgbColor = ColorUtil.hexToRgb(hexColor);
@@ -63,6 +77,7 @@ const App = (function buildApp() {
 
     const predictionLabel = predictionLabels[indexOfMaxProba];
     predictionLabelEl.textContent = predictionLabel;
+    predictionLabelEl.style.color = getTextColorForBackground(rgbColor);
   }
 
   function handleColorInput() {
