@@ -11,6 +11,29 @@ const FakeModel = (function buildFakeModel() {
   };
 })();
 
+const Model = (function buildFakeModel() {
+  let model;
+
+  return {
+    async init() {
+      model = await tf.loadLayersModel('./model/model.json');
+    },
+
+    getModel() {
+      return model;
+    },
+
+    async predict({ red, green, blue }) {
+      const x = tf.tensor2d([red, green, blue], [1, 3]);
+      const predictionTensor = model.predict(x);
+      const probabilities = await predictionTensor.data();
+      const maxProba = Math.max(...probabilities);
+      const indexOfMaxProba = probabilities.indexOf(maxProba);
+      return indexOfMaxProba;
+    },
+  };
+})();
+
 const App = (function buildApp() {
   const colorInputEl = document.getElementsByClassName('color-input').item(0);
   const predictionLabelEl = document
@@ -28,9 +51,10 @@ const App = (function buildApp() {
     'Gray-ish',
   ];
 
-  function predict() {
+  async function predict() {
     const hexColor = colorInputEl.value;
-    const predictionIndex = FakeModel.predict(hexColor);
+    const rgbColor = ColorUtil.hexToRgb(hexColor);
+    const predictionIndex = await Model.predict(rgbColor);
     const predictionLabel = predictionLabels[predictionIndex];
     predictionLabelEl.textContent = predictionLabel;
   }
@@ -49,7 +73,8 @@ const App = (function buildApp() {
   }
 
   return {
-    init() {
+    async init() {
+      await Model.init();
       addEventListeners();
       setColorInputToRandomValue();
       predict();
