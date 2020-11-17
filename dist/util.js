@@ -24,15 +24,35 @@ const ColorUtil = (function buildColorUtil() {
 
     getRandomHexColor() {
       const rgbColor = this.getRandomRGBColor();
-      return this.RGBToHex(rgbColor);
+      return this.rgbToHex(rgbColor);
     },
 
-    RGBToHex({ red, green, blue }) {
+    rgbToHex({ red, green, blue }) {
       const redHex = intToHex(red);
       const greenHex = intToHex(green);
       const blueHex = intToHex(blue);
 
       return `#${redHex}${greenHex}${blueHex}`;
+    },
+
+    hexToRgb(hexColor) {
+      let hexValue;
+
+      if (hexColor.startsWith('#')) {
+        hexValue = hexColor.slice(1);
+      } else {
+        hexValue = hexColor;
+      }
+
+      const redHexStr = hexValue.slice(0, 2);
+      const greenHexStr = hexValue.slice(2, 4);
+      const blueHexStr = hexValue.slice(4, 6);
+
+      const redInt = Number.parseInt(redHexStr, 16);
+      const greenInt = Number.parseInt(greenHexStr, 16);
+      const blueInt = Number.parseInt(blueHexStr, 16);
+
+      return { red: redInt, green: greenInt, blue: blueInt };
     },
   };
 })();

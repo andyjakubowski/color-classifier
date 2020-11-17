@@ -66,7 +66,7 @@ const App = (function buildApp() {
   }
 
   function saveColorLabel(button) {
-    const colorHex = ColorUtil.RGBToHex(currentColor);
+    const colorHex = ColorUtil.rgbToHex(currentColor);
     const label = button.textContent.toLowerCase();
     const { red, green, blue } = currentColor;
     const labelObject = { red, green, blue, label, colorHex };
@@ -106,12 +106,12 @@ const App = (function buildApp() {
 
     do {
       currentColor = ColorUtil.getRandomRGBColor();
-      hexColor = ColorUtil.RGBToHex(currentColor);
+      hexColor = ColorUtil.rgbToHex(currentColor);
     } while (labeledColors.includes(hexColor));
   }
 
   function displayNewColor() {
-    colorBoxEl.style.backgroundColor = ColorUtil.RGBToHex(currentColor);
+    colorBoxEl.style.backgroundColor = ColorUtil.rgbToHex(currentColor);
   }
 
   return {
