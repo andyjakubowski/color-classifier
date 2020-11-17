@@ -26,15 +26,14 @@ main {
 }
 
 .main-content {
-  max-width: 400px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .title {
-  margin-block-end: 0.5em;
+  margin: 0 0 0.5em;
+  max-width: 400px;
 
   font-family: 'Ghoulish Intent Rotalic';
   font-size: 77px;
@@ -56,12 +55,41 @@ main {
   background-color: aquamarine;
 }
 
+.blob__container {
+  position: relative;
+}
+
+.blob__label-container {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  pointer-events: none;
+}
+
+.prediction-label {
+  margin: 0;
+
+  font-family: 'Ghoulish Intent Rotalic';
+  font-size: 44px;
+  text-align: center;
+}
+
 .color-input {
   margin: 0;
   padding: 0;
 
   width: 300px;
-  height: 280px;
+  height: 264px;
+
+  display: block;
 
   border: none;
   background-color: none;
