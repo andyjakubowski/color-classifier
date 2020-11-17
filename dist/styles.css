@@ -144,12 +144,54 @@ h1 {
 
 .bar__rect-fill {
   height: 0;
-  background-color: tomato;
+  background-color: black;
 }
 
 .bar__label {
-  padding-top: 0.25em;
+  /* margin-top: 0.25em; */
+  margin: 6px 2px 4px;
+  height: 10px;
+
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+
   text-align: center;
+}
+
+.bar__red {
+  background-color: red;
+}
+
+.bar__green {
+  background-color: green;
+}
+
+.bar__blue {
+  background-color: blue;
+}
+
+.bar__orange {
+  background-color: orange;
+}
+
+.bar__yellow {
+  background-color: yellow;
+}
+
+.bar__pink {
+  background-color: pink;
+}
+
+.bar__purple {
+  background-color: purple;
+}
+
+.bar__brown {
+  background-color: brown;
+}
+
+.bar__gray {
+  background-color: gray;
 }
 
 /* Positioning */
