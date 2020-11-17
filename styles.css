@@ -1,7 +1,13 @@
+@font-face {
+  font-family: 'Ghoulish Intent Rotalic';
+  src: url('./assets/fonts/ghoulishintentrotal.otf') format('opentype');
+  font-display: swap;
+}
+
 body {
   margin: 0;
-  min-height: 100vh;
   min-height: -webkit-fill-available;
+  min-height: 100vh;
 
   display: flex;
   flex-direction: column;
@@ -10,7 +16,7 @@ body {
 }
 
 main {
-  padding-block-end: 3em;
+  /* padding-block-end: 3em; */
 
   flex-grow: 1;
 
@@ -20,15 +26,19 @@ main {
 }
 
 .main-content {
-  max-width: 400px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-h1 {
-  margin-block-end: 0.5em;
+.title {
+  margin: 0 0 0.5em;
+  max-width: 400px;
+
+  font-family: 'Ghoulish Intent Rotalic';
+  font-size: 77px;
+  text-align: center;
+  line-height: 0.9;
 }
 
 .count-heading__heading {
@@ -45,17 +55,49 @@ h1 {
   background-color: aquamarine;
 }
 
+.blob__container {
+  position: relative;
+}
+
+.blob__label-container {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  pointer-events: none;
+}
+
+.prediction-label {
+  margin: 0;
+
+  font-family: 'Ghoulish Intent Rotalic';
+  font-size: 44px;
+  text-align: center;
+}
+
 .color-input {
   margin: 0;
   padding: 0;
 
-  width: 280px;
-  height: 280px;
+  width: 300px;
+  height: 264px;
+
+  display: block;
 
   border: none;
   background-color: none;
 
   cursor: pointer;
+
+  -webkit-clip-path: url('#blobClipPath');
+  clip-path: url('#blobClipPath');
 }
 
 .buttons-list {
@@ -111,6 +153,87 @@ h1 {
 }
 
 .footer__link-json {
+}
+
+.bars-container {
+  margin: 0 0 1em;
+  padding: 0;
+  display: flex;
+}
+
+.bar {
+  width: 16px;
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.bar:not(:first-of-type) {
+  margin-left: 0.5em;
+}
+
+.bar__rect-container {
+  height: 32px;
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.bar__rect-fill {
+  height: 0;
+  background-color: black;
+}
+
+.bar__label {
+  /* margin-top: 0.25em; */
+  margin: 6px 2px 4px;
+  height: 10px;
+
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+
+  text-align: center;
+}
+
+.bar__red {
+  background-color: red;
+}
+
+.bar__green {
+  background-color: green;
+}
+
+.bar__blue {
+  background-color: blue;
+}
+
+.bar__orange {
+  background-color: orange;
+}
+
+.bar__yellow {
+  background-color: yellow;
+}
+
+.bar__pink {
+  background-color: pink;
+}
+
+.bar__purple {
+  background-color: purple;
+}
+
+.bar__brown {
+  background-color: brown;
+}
+
+.bar__gray {
+  background-color: gray;
 }
 
 /* Positioning */
