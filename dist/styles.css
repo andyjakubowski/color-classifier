@@ -103,6 +103,7 @@ main {
 .buttons-list {
   margin: 2em 0 0;
   padding: 0;
+  max-width: 400px;
 
   display: flex;
   flex-wrap: wrap;
