@@ -11,7 +11,7 @@ const FakeModel = (function buildFakeModel() {
   };
 })();
 
-const Model = (function buildFakeModel() {
+const Model = (function buildModel() {
   let model;
 
   return {
