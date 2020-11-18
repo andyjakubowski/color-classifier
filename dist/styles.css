@@ -147,10 +147,6 @@ main {
   list-style-type: none;
 }
 
-.footer__link-item:not(:first-of-type) {
-  margin-inline-start: 1em;
-}
-
 .footer__link {
   padding: 1em;
 
@@ -163,6 +159,8 @@ main {
 
 .footer__link-github,
 .footer__link-twitter {
+  font-size: 1.5em;
+
   text-decoration: none;
 }
 
