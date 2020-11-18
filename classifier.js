@@ -11,7 +11,7 @@ const FakeModel = (function buildFakeModel() {
   };
 })();
 
-const Model = (function buildFakeModel() {
+const Model = (function buildModel() {
   let model;
 
   return {
@@ -51,6 +51,8 @@ const App = (function buildApp() {
   let barRects;
   let predictionLabelEl;
   let titleEl;
+  let footerLinkEls;
+  let creditTextEl;
 
   function getTextColorForBackground({ red, green, blue }) {
     const THRESHOLD = 110;
@@ -91,10 +93,7 @@ const App = (function buildApp() {
     };
   })();
 
-  const updateTitleColor = (function makeUpdateTitleColor() {
-    // const TITLEOPACITY = 0.25;
-    // const BG_OPACITY_RGB_RANGE = Math.floor(BG_OPACITY * 255);
-    // const BG_OPACITY_HEX = ColorUtil.intToHex(BG_OPACITY_RGB_RANGE);
+  const updateTextColor = (function makeUpdateTextColor() {
     const SATURATION_MAX_PERCENT = 30;
     const LIGHTNESS_MAX_PERCENT = 30;
 
@@ -103,15 +102,19 @@ const App = (function buildApp() {
       const saturation = Math.min(s, SATURATION_MAX_PERCENT);
       const lightness = Math.min(l, LIGHTNESS_MAX_PERCENT);
       const propValue = `hsl(${h}, ${saturation}%, ${lightness}%)`;
+
+      footerLinkEls.forEach((footerLink) => {
+        footerLink.style.color = propValue;
+      });
       titleEl.style.color = propValue;
-      // return "hsl(" + h + "," + s + "%," + l + "%)";
+      creditTextEl.style.color = propValue;
     };
   })();
 
   function handleColorInput() {
     const hexColor = colorInputEl.value;
     updateBodyBackground(hexColor);
-    updateTitleColor(hexColor);
+    updateTextColor(hexColor);
     predict();
   }
 
@@ -119,7 +122,7 @@ const App = (function buildApp() {
     const hexColor = ColorUtil.getRandomHexColor();
     colorInputEl.value = hexColor;
     updateBodyBackground(hexColor);
-    updateTitleColor(hexColor);
+    updateTextColor(hexColor);
   }
 
   function addEventListeners() {
@@ -136,6 +139,11 @@ const App = (function buildApp() {
     predictionLabelEl = document
       .getElementsByClassName('prediction-label')
       .item(0);
+    const footerLinksHTMLCollection = document.getElementsByClassName(
+      'footer__link'
+    );
+    footerLinkEls = [...footerLinksHTMLCollection];
+    creditTextEl = document.getElementsByClassName('credit-text').item(0);
   }
 
   return {

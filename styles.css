@@ -103,6 +103,7 @@ main {
 .buttons-list {
   margin: 2em 0 0;
   padding: 0;
+  max-width: 400px;
 
   display: flex;
   flex-wrap: wrap;
@@ -132,9 +133,13 @@ main {
   background-color: rgba(0, 0, 0, 0.04);
 }
 
+.footer {
+  padding-bottom: 1em;
+}
+
 .footer__link-list {
   margin: 0;
-  padding: 0 0 1em;
+  padding: 0;
 
   display: flex;
   justify-content: center;
@@ -152,7 +157,24 @@ main {
   display: block;
 }
 
-.footer__link-json {
+.footer_classifier {
+  font-family: 'Ghoulish Intent Rotalic';
+}
+
+.footer__link-github,
+.footer__link-twitter {
+  text-decoration: none;
+}
+
+.credit-text {
+  margin: 0;
+  text-align: center;
+  opacity: 0.3;
+}
+
+.credit-text__link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .bars-container {
