@@ -36,9 +36,10 @@ main {
   max-width: 400px;
 
   font-family: 'Ghoulish Intent Rotalic';
-  font-size: 77px;
-  text-align: center;
+  font-size: 79px;
   line-height: 0.9;
+  font-weight: normal;
+  text-align: center;
 }
 
 .count-heading__heading {
@@ -79,6 +80,7 @@ main {
 
   font-family: 'Ghoulish Intent Rotalic';
   font-size: 44px;
+  font-weight: normal;
   text-align: center;
 }
 
